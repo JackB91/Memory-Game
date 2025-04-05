@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './Components/Header'
+import Start from './Components/Start'
 import './Index.css'
 
 
@@ -9,7 +10,10 @@ export default function App() {
   const [count, setCount] = useState(0)
 
 return (
+  <>
   <Header/>
+  <Start/>
+  </>
 )
 }
 

@@ -88,3 +88,12 @@ Header*/
     }
     
   }
+
+  .start-game {
+    text-align: center;
+  }
+
+  .start-game li {
+    list-style: none;
+  }
+
