@@ -79,3 +79,12 @@ Header*/
   width: 100vw;
   text-align: center;
   }
+
+  h1::after {content: "|"; animation: blink 1s infinite;}
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+    
+  }
