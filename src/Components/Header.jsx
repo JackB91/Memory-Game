@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 
 export default function Header () {
-    const welcomeMsg = "Welcome to the Memory Game"
+    const welcomeMsg = "Memory Game"
     const [welcome, setWelcome] = useState("")
     const [index ,setIndex] = useState(0)
 
