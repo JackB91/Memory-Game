@@ -21,7 +21,7 @@ export default function Header () {
         else {
             const resetTimeout = setTimeout(() => {
                 setWelcome("") 
-                setIndex(0)
+                // setIndex(0) FIXME: Just stopped the loop as i work on it
 
             },2000)
         }
