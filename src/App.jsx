@@ -8,11 +8,14 @@ import './Index.css'
 
 export default function App() {
   const [count, setCount] = useState(0)
+  const [startGame, setStartGame] = useState(false)
 
 return (
   <>
-  <Header/>
-  <Start/>
+  {!startGame? (
+   <> <Header/>
+     <Start/> </>
+     ):null}
   </>
 )
 }

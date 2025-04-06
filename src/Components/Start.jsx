@@ -3,7 +3,7 @@ export default function Start() {
         <div className="start-game">
             <h2>Are you ready to begin? </h2>
             <button>Lets Go</button>
-            <button>Another Time</button>
+           
 
 
 {/* TODO: Possible Addition */}
