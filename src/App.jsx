@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Header from './Components/Header'
 import Start from './Components/Start'
 import Game from './Components/Game'
 import './Index.css'
@@ -17,7 +16,7 @@ export default function App() {
 return (
   <>
   {!startGame? (
-   <> <Header/>
+   <>
      <Start setStartGame={setStartGame}/> </>
      )
      :<Game/>}

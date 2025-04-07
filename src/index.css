@@ -7,6 +7,10 @@
 
   h1::after {content: "|"; animation: blink 1s infinite;}
 
+h1 {
+  font-size: 3.5rem;
+}
+
   @keyframes blink {
     50% {
       opacity: 0;
@@ -27,6 +31,13 @@
   padding: 2rem;
   text-align: left;
   font-family: 'Arial', sans-serif;
+}
+
+.rules-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-decoration: underline;
 }
 
 .rules {
@@ -57,9 +68,43 @@ h3 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
+
+  opacity: 0;
+  animation: popIn 2.3s ease forwards;
+  animation-delay: 2s;
+
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    /* transform: scale(1); */
+  }
+  
 }
 
 .start-button:hover {
   background-color: #fde047; 
   transform: scale(1.05);
 }
+
+
+.rules li {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.rules li:nth-child(1) { animation-delay: 0.3s; }
+.rules li:nth-child(2) { animation-delay: 0.6s; }
+.rules li:nth-child(3) { animation-delay: 0.9s; }
+.rules li:nth-child(4) { animation-delay: 1.2s; }
+.rules li:nth-child(5) { animation-delay: 1.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
