@@ -1,7 +1,12 @@
+import { useState, useEffect } from "react";
+import Timer from "./Timer";
+
 export default function Game () {
     return (
         <>
-        <h3>Game Logic Goes here</h3>
+        <h3>Level 1</h3>
+        <Timer/>
+        <div className="card"></div>
         </>
     )
 }
