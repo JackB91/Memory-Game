@@ -37,7 +37,7 @@ function createShuffledDeck(numPairs) {
 
 export default function Game () {
 
-    const [cards,setCards] = useState(()=>createShuffledDeck(3))
+    const [cards,setCards] = useState(()=>createShuffledDeck(7))
 
     console.log(cards)
 
