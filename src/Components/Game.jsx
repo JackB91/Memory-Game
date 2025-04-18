@@ -39,6 +39,8 @@ export default function Game () {
     const [cards,setCards] = useState(()=>createShuffledDeck(2))
     const [selectedCards,setSelectedCards] = useState([])
 
+    
+
 
 
 //This will flip my card but only allow two flipped at a time
@@ -47,18 +49,43 @@ export default function Game () {
             setSelectedCards(prev => [...prev, index])
         }
     }
-   
 
-// TODO: Just for testing to flip back cards
-    useEffect(() => {
+
+    function handleMatch() {
+        if (selectedCards.length === 2) {
+          const [firstIndex, secondIndex] = selectedCards;
+          if (cards[firstIndex] === cards[secondIndex]) {
+            console.log("It's a MATCH");
+            // Optionally store matched indices in a new state like `matchedCards`
+          } else {
+            console.log("Not a match");
+          }
+        }
+      }
+      
+
+      useEffect(() => {
         if (selectedCards.length === 2) {
           setTimeout(() => {
-            setSelectedCards([]);
-          }, 1000); // delay before flipping back
+            handleMatch();
+            setSelectedCards([]); // Reset for next turn
+          }, 1000); // Delay for dramatic effect
         }
       }, [selectedCards]);
       
+   
 
+// TODO: Just for testing to flip back cards
+    // useEffect(() => {
+    //     if (selectedCards.length === 2) {
+    //       setTimeout(() => {
+    //         setSelectedCards([]);
+    //       }, 1000); // delay before flipping back
+    //     }
+    //   }, [selectedCards]);
+      
+
+     
 
     return (
         <div className="game-container">
@@ -66,7 +93,10 @@ export default function Game () {
         <Timer/>
        <div className="card-grid">
         {cards.map((value,index)=> (
-            <Card key={index} value={selectedCards.includes(index)? value:null} onClick={()=> handleCardClick(index)}/>
+            <Card 
+                key={index} 
+                value={selectedCards.includes(index)? value:null} 
+                onClick={()=> handleCardClick(index)}/>
         ))}
        </div>
         </div>
