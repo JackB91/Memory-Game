@@ -34,10 +34,10 @@ function createShuffledDeck(numPairs) {
 
 
 export default function Game () {
-    // TODO: USEEFFECT??
-
     const [cards,setCards] = useState(()=>createShuffledDeck(2))
     const [selectedCards,setSelectedCards] = useState([])
+
+    const [matchedCards, setMatchedCards] = useState([])
 
     
 
@@ -56,7 +56,8 @@ export default function Game () {
           const [firstIndex, secondIndex] = selectedCards;
           if (cards[firstIndex] === cards[secondIndex]) {
             console.log("It's a MATCH");
-            // Optionally store matched indices in a new state like `matchedCards`
+
+            setMatchedCards(prev => [...prev, firstIndex,secondIndex])
           } else {
             console.log("Not a match");
           }
@@ -95,7 +96,9 @@ export default function Game () {
         {cards.map((value,index)=> (
             <Card 
                 key={index} 
-                value={selectedCards.includes(index)? value:null} 
+                value={selectedCards.includes(index) || matchedCards.includes(index)? 
+                    value
+                    :null} 
                 onClick={()=> handleCardClick(index)}/>
         ))}
        </div>
