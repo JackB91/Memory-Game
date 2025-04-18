@@ -107,3 +107,18 @@ h3 {
   }
 }
 
+
+
+/* Card Styling */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: linear-gradient(145deg, #f0f0f0, #cccccc);
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
