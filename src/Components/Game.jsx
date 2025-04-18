@@ -43,7 +43,7 @@ export default function Game () {
 
 
     return (
-        <>
+        <div className="game-container">
         <h3>Level 1</h3>
         <Timer/>
        <div className="card-grid">
@@ -51,7 +51,7 @@ export default function Game () {
             <Card key={index} value={value}/>
         ))}
        </div>
-        </>
+        </div>
     )
 }
 
