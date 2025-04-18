@@ -1,5 +1,5 @@
-export default function Card() {
+export default function Card({value}) {
     return (
-        <div className="card"></div>
+        <div className="card">{value}</div>
     )
 }
