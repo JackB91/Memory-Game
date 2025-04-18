@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import Timer from "./Timer";
 import Card from "./Card";
 
-
-
 //generateing a pair for each value
 function generatePairs (numPairs) {
   const cardValues = [];
@@ -14,8 +12,6 @@ function generatePairs (numPairs) {
  
   return cardValues
 }
-
-
 //This method is called fisher yates
 //Used to shuffle the deck
 function shuffleArray(array) {
@@ -35,11 +31,33 @@ function createShuffledDeck(numPairs) {
 }
 
 
+
+
 export default function Game () {
+    // TODO: USEEFFECT??
 
-    const [cards,setCards] = useState(()=>createShuffledDeck(3))
+    const [cards,setCards] = useState(()=>createShuffledDeck(2))
+    const [selectedCards,setSelectedCards] = useState([])
 
-    console.log(cards)
+
+
+//This will flip my card but only allow two flipped at a time
+    function handleCardClick(index) {
+        if (selectedCards.length < 2 && !selectedCards.includes(index)) {
+            setSelectedCards(prev => [...prev, index])
+        }
+    }
+   
+
+// TODO: Just for testing to flip back cards
+    useEffect(() => {
+        if (selectedCards.length === 2) {
+          setTimeout(() => {
+            setSelectedCards([]);
+          }, 1000); // delay before flipping back
+        }
+      }, [selectedCards]);
+      
 
 
     return (
@@ -48,7 +66,7 @@ export default function Game () {
         <Timer/>
        <div className="card-grid">
         {cards.map((value,index)=> (
-            <Card key={index} value={value}/>
+            <Card key={index} value={selectedCards.includes(index)? value:null} onClick={()=> handleCardClick(index)}/>
         ))}
        </div>
         </div>

@@ -1,5 +1,5 @@
-export default function Card({value}) {
+export default function Card({value, onClick}) {
     return (
-        <div className="card">{value}</div>
+        <div className="card" onClick ={onClick}>{value? value:""}</div>
     )
 }
