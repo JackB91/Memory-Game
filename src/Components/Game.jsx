@@ -34,6 +34,8 @@ function createShuffledDeck(numPairs) {
 
 
 export default function Game () {
+    const [level, setLevel] = useState(1)
+    const [timeLeft, setTimeLeft] = useState(30)
     const [cards,setCards] = useState(()=>createShuffledDeck(2))
     const [selectedCards,setSelectedCards] = useState([])
 
@@ -52,7 +54,6 @@ export default function Game () {
 
 
     function handleMatch() {
-        if (selectedCards.length === 2) {
           const [firstIndex, secondIndex] = selectedCards;
           if (cards[firstIndex] === cards[secondIndex]) {
             console.log("It's a MATCH");
@@ -61,7 +62,16 @@ export default function Game () {
           } else {
             console.log("Not a match");
           }
-        }
+      }
+
+
+// TODO:
+      function handleLevelUp () {
+
+      }
+    //   TODO:
+      function handleGameOver () {
+
       }
       
 
@@ -70,28 +80,15 @@ export default function Game () {
           setTimeout(() => {
             handleMatch();
             setSelectedCards([]); // Reset for next turn
-          }, 1000); // Delay for dramatic effect
+          }, 1000); 
         }
       }, [selectedCards]);
       
    
-
-// TODO: Just for testing to flip back cards
-    // useEffect(() => {
-    //     if (selectedCards.length === 2) {
-    //       setTimeout(() => {
-    //         setSelectedCards([]);
-    //       }, 1000); // delay before flipping back
-    //     }
-    //   }, [selectedCards]);
-      
-
-     
-
     return (
         <div className="game-container">
-        <h3>Level 1</h3>
-        <Timer/>
+        <h3>Level {level}</h3>
+        <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft}/>
        <div className="card-grid">
         {cards.map((value,index)=> (
             <Card 
