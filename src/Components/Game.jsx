@@ -36,14 +36,12 @@ function createShuffledDeck(numPairs) {
 export default function Game () {
     const [level, setLevel] = useState(1)
     const [timeLeft, setTimeLeft] = useState(30)
+
+    // FIXME: May need to modify this to numpairs?
     const [cards,setCards] = useState(()=>createShuffledDeck(2))
     const [selectedCards,setSelectedCards] = useState([])
 
     const [matchedCards, setMatchedCards] = useState([])
-
-    // const [match, setMatch]= useState(false)
-
-    
 
 
 
@@ -79,9 +77,16 @@ export default function Game () {
       //Handle when to level up
     //   TODO:
 
-    //   useEffect (() => {
+      useEffect (() => {
+        if (matchedCards.length === cards.length && cards.length > 0) {
 
-    //   })
+          setTimeout(() => {
+            setLevel(prev => prev + 1)
+            setTimeLeft(prev => prev + 5)
+          },500)
+        }
+
+      },[matchedCards])
    
     return (
         <div className="game-container">
