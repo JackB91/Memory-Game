@@ -71,7 +71,7 @@ export default function Game () {
           setTimeout(() => {
             handleMatch();
             setSelectedCards([]); // Reset for next turn
-          }, 1000); 
+          }, 400); 
         }
       }, [selectedCards]);
       
