@@ -1,6 +1,6 @@
-export default function Card({value, onClick}) {
+export default function Card({value, onClick,isMatched}) {
     return (
-        <div className="card" 
+        <div className={`card${isMatched ? ' matched' : ''}`}
         onClick ={onClick}>{value? value:""}</div>
     )
 }
