@@ -58,22 +58,14 @@ export default function Game () {
           if (cards[firstIndex] === cards[secondIndex]) {
             console.log("It's a MATCH");
 
+            // firstCard.style.backgroundColor= 'lightgreen'
+
             setMatchedCards(prev => [...prev, firstIndex,secondIndex])
           } else {
             console.log("Not a match");
           }
       }
 
-
-// TODO:
-      function handleLevelUp () {
-
-      }
-    //   TODO:
-      function handleGameOver () {
-
-      }
-      
 
       useEffect(() => {
         if (selectedCards.length === 2) {
@@ -84,6 +76,13 @@ export default function Game () {
         }
       }, [selectedCards]);
       
+
+      //Handle when to level up
+    //   TODO:
+
+    //   useEffect (() => {
+
+    //   })
    
     return (
         <div className="game-container">
