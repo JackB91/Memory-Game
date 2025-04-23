@@ -41,6 +41,8 @@ export default function Game () {
 
     const [matchedCards, setMatchedCards] = useState([])
 
+    // const [match, setMatch]= useState(false)
+
     
 
 
@@ -57,9 +59,6 @@ export default function Game () {
           const [firstIndex, secondIndex] = selectedCards;
           if (cards[firstIndex] === cards[secondIndex]) {
             console.log("It's a MATCH");
-
-            // firstCard.style.backgroundColor= 'lightgreen'
-
             setMatchedCards(prev => [...prev, firstIndex,secondIndex])
           } else {
             console.log("Not a match");
@@ -72,7 +71,7 @@ export default function Game () {
           setTimeout(() => {
             handleMatch();
             setSelectedCards([]); // Reset for next turn
-          }, 1000); 
+          }, 400); 
         }
       }, [selectedCards]);
       
@@ -95,7 +94,8 @@ export default function Game () {
                 value={selectedCards.includes(index) || matchedCards.includes(index)? 
                     value
                     :null} 
-                onClick={()=> handleCardClick(index)}/>
+                onClick={()=> handleCardClick(index)}
+                isMatched={matchedCards.includes(index)}/>
         ))}
        </div>
         </div>
