@@ -33,7 +33,7 @@ function createShuffledDeck(numPairs) {
 
 export default function Game () {
     const [level, setLevel] = useState(1)
-    const [timeLeft, setTimeLeft] = useState(30)
+    const [timeLeft, setTimeLeft] = useState(5)
 
     const [numPairs,setNumPairs] = useState(2)  
     const [cards,setCards] = useState(()=>createShuffledDeck(numPairs))
@@ -51,7 +51,7 @@ export default function Game () {
         }
     }
 
-
+//Handles when Card Matches
     function handleMatch() {
           const [firstIndex, secondIndex] = selectedCards;
           if (cards[firstIndex] === cards[secondIndex]) {
@@ -62,7 +62,7 @@ export default function Game () {
           }
       }
 
-
+//Runs when I have clicked on two cards to check if they match
       useEffect(() => {
         if (selectedCards.length === 2) {
           setTimeout(() => {
@@ -82,6 +82,8 @@ export default function Game () {
         setMatchedCards([]);
       }, [numPairs])
 
+
+      ///For when Level Complete
       useEffect (() => {
         if (matchedCards.length === cards.length && cards.length > 0) {
 
@@ -95,6 +97,13 @@ export default function Game () {
       },[matchedCards])
 
 
+      //For End of Game
+      useEffect(() => {
+        if (timeLeft === 0) {
+          setGameState("end"); // switch to end screen
+        }
+      }, [timeLeft]);
+      
 
    
     return (
