@@ -17,7 +17,7 @@ return (
   <>
      {gameState === 'start' && <Start setGameState = {setGameState}/>}
      {gameState === 'playing' && <Game setGameState = {setGameState} level ={level} setLevel = {setLevel}/>}
-     {gameState === 'end' && <End setGameState = {setGameState} level ={level}/>}
+     {gameState === 'end' && <End setGameState = {setGameState} level ={level} setLevel ={setLevel}/>}
 
   </>
 )
