@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Start from './Components/Start'
 import Game from './Components/Game'
+import End from './Components/End'
 import './Index.css'
 
 
@@ -8,7 +9,8 @@ import './Index.css'
 
 
 export default function App() {
-  const [startGame, setStartGame] = useState(false)
+  // const [startGame, setStartGame] = useState(false)
+  const [gameState, setGameState] = useState('start')
  
 
   // TODO: On click of startGame, flip the startgame status
@@ -16,11 +18,15 @@ export default function App() {
 
 return (
   <>
-  {!startGame? (
+  {/* {!startGame? (
    <>
      <Start setStartGame={setStartGame}/> </>
      )
-     :<Game/>}
+     :<Game/>} */}
+
+     {gameState === 'start' && <Start setGameState = {setGameState}/>}
+     {gameState === 'playing' && <Game setGameState = {setGameState}/>}
+     {gameState === 'end' && <End setGameState = {setGameState}/>}
 
   </>
 )

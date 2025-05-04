@@ -31,13 +31,10 @@ function createShuffledDeck(numPairs) {
 }
 
 
-
-
 export default function Game () {
     const [level, setLevel] = useState(1)
     const [timeLeft, setTimeLeft] = useState(30)
 
-    // FIXME: May need to modify this to numpairs?
     const [numPairs,setNumPairs] = useState(2)  
     const [cards,setCards] = useState(()=>createShuffledDeck(numPairs))
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-export default function Start({setStartGame}) {
+export default function Start({setGameState}) {
    const [welcomeMsg, setWelcomeMsg] = useState("Memory Game")
     const [welcome, setWelcome] = useState("")
     const [index ,setIndex] = useState(0)
@@ -31,7 +31,7 @@ export default function Start({setStartGame}) {
 
 // FIXME: Move this inside App??
     function handleStart() {
-        setStartGame(true)
+        setGameState("playing")
         console.log("Changed status")
       }
 
