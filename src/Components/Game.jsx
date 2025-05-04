@@ -32,7 +32,7 @@ function createShuffledDeck(numPairs) {
 
 
 export default function Game ({setGameState, setLevel, level}) {
-    const [timeLeft, setTimeLeft] = useState(30)
+    const [timeLeft, setTimeLeft] = useState(3)
 
     const [numPairs,setNumPairs] = useState(2)  
     const [cards,setCards] = useState(()=>createShuffledDeck(numPairs))

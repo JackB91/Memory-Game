@@ -3,6 +3,7 @@ import Start from './Components/Start'
 import Game from './Components/Game'
 import End from './Components/End'
 import './Index.css'
+import Confetti from 'react-confetti'
 
 
 // TODO: Manage my state here for: Level, score, how many cards
@@ -18,7 +19,7 @@ return (
      {gameState === 'start' && <Start setGameState = {setGameState}/>}
      {gameState === 'playing' && <Game setGameState = {setGameState} level ={level} setLevel = {setLevel}/>}
      {gameState === 'end' && <End setGameState = {setGameState} level ={level} setLevel ={setLevel}/>}
-
+     {gameState === 'end' && <Confetti/>}
   </>
 )
 }
