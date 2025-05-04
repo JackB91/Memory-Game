@@ -12,9 +12,10 @@ useEffect(() => {
                 return 0
             })
         }, 1000)
-
+       
         return () => clearInterval(countdownInterval)
     }
+
 }, [countdownStarted])
 
 
