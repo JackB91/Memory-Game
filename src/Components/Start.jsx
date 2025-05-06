@@ -41,11 +41,11 @@ export default function Start({setGameState}) {
             <h1>{welcome}</h1>
             <h2 className='rules-title'>Rules</h2>
             <ul className="rules">
-                <li>⏱ 30 seconds on clock</li>
-                <li>🃏 6 cards</li>
+                <li>⏱ 60 seconds on clock</li>
+                <li>🃏 6 cards to start</li>
                 <li>🖱️ Click and match pairs</li>
                 <li>➕ +10 seconds Per level</li>
-                <li>🚀 How many levels can you reach</li>
+                <li>🚀 How many levels can you reach?</li>
             </ul>
             <h2>Are you ready to begin? </h2>
             <button className="start-button" onClick={handleStart}>Lets Go</button> 
